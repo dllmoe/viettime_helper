@@ -1,0 +1,43 @@
+{
+    "manifest_version": 2,
+    "name": "Viettime Helper",
+    "version": "1.0.0",
+    "description": "Viettime helper extention",
+    "icons": {
+        "128": "icons/128.png",
+        "48": "icons/48.png",
+        "16": "icons/16.png"
+    },
+    "author": "wallax",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://item.taobao.com/*",
+                "https://detail.tmall.com/*",
+                "https://detail.1688.com/*"
+            ],
+            "js": [
+                "content_scripts.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "browser_action": {
+        "default_icon": {
+            "16": "icons/16.png",
+            "24": "icons/48.png",
+            "32": "icons/48.png"
+        },
+        "default_title": "Viettime"
+    },
+    "permissions": [
+        "http://viettime.shop/*",
+        "tabs"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    }
+}
