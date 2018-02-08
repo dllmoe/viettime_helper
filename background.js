@@ -39,3 +39,7 @@ chrome.runtime.onMessage.addListener(function (msg, sender, response) {
         return true
     }
 })
+
+chrome.browserAction.onClicked.addListener(function (tab) {
+    chrome.tabs.create({ url: 'http://viettime.shop/' })
+})
