@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Viettime Helper",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Viettime helper extention",
     "icons": {
         "128": "icons/128.png",
@@ -17,7 +17,7 @@
                 "https://detail.1688.com/*"
             ],
             "js": [
-                "helper.js"
+                "viettime.js"
             ],
             "run_at": "document_end"
         }
