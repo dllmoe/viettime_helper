@@ -1,3 +1,5 @@
+var searchUrl = 'http://viettime.shop/index.php?controller=site&action=shop_products&search_buy='
+
 function getRate(callback) {
     var req = new XMLHttpRequest
     req.open('GET', 'http://viettime.shop/index.php?controller=simple&action=getHuilv', true)
@@ -45,5 +47,14 @@ chrome.runtime.onMessage.addListener(function (msg, sender, response) {
 })
 
 chrome.browserAction.onClicked.addListener(function (tab) {
-    chrome.tabs.create({ url: 'http://viettime.shop/' })
+    var matches = [
+        /^https:\/\/item\.taobao\.com\//i,
+        /^https:\/\/detail\.tmall\.com\//i,
+        /^https:\/\/detail\.1688\.com\//i,
+    ]
+    if (matches.find(function (i) { return i.test(tab.url) })) {
+        chrome.tabs.create({ url: searchUrl + encodeURIComponent(tab.url) })
+    } else {
+        chrome.tabs.create({ url: 'http://viettime.shop/' })
+    }
 })
